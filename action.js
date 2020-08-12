@@ -17,6 +17,7 @@ const github = require('@actions/github');
         const name = core.getInput('name');
         const body = core.getInput('body');
         const verbose = core.getInput('verbose') == 'true'; // input is always string, not boolean.
+        const branch = core.getInput('branch');
         const draft = core.getInput('draft') == 'true';
         const prerelease = core.getInput('prerelease') == 'true';
         let files = null;
@@ -37,7 +38,6 @@ const github = require('@actions/github');
             files = core.getInput('files').split(';');
         }
 
-        const commit = 'master'; // This could likely be a parameter in the future. Get commit like this: github.context.sha
         let release = null;
         let created = false; // Indicate if the release was created, or merely updated.
 
@@ -67,7 +67,7 @@ const github = require('@actions/github');
             }
         }
 
-        info(`🎄 <- That is when I wrote this code.`);
+        info(`running Releasing`);
 
         // First let us try to get the release.
         try {
@@ -125,7 +125,7 @@ const github = require('@actions/github');
         var releaseOptions = {
             ...github.context.repo,
             tag_name: tag,
-            target_commitish: commit,
+            target_commitish: branch,
             name,
             body,
             prerelease: prerelease,
