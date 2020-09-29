@@ -26,6 +26,6 @@
         "changelog-parser": "^2.8.0"
     },
     "devDependencies": {
-        "conventional-changelog-cli": "^2.0.31"
+        "conventional-changelog-cli": "^2.1.0"
     }
 }
