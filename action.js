@@ -117,7 +117,7 @@ async function upload (release, files, created) {
       files = core.getInput('files').split(';')
     }
 
-    name = name.replace('[[DATETIME]]', new Date().toLocaleString('de', { dateStyle: 'medium', timeStyle: 'medium' }))
+    name = name.replace('[[DATETIME]]', new Date().toLocaleString('de', { dateStyle: 'medium', timeStyle: 'medium', timZone: 'Europe/Berlin' }))
 
     let release = null
     let created = false // Indicate if the release was created, or merely updated.
