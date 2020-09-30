@@ -9,6 +9,7 @@ const path = require('path')
 const mime = require('mime')
 const core = require('@actions/core')
 const github = require('@actions/github')
+const moment = require('moment-timezone')
 
 var api = null
 var verbose = false
@@ -117,7 +118,7 @@ async function upload (release, files, created) {
       files = core.getInput('files').split(';')
     }
 
-    name = name.replace('[[DATETIME]]', new Date().toLocaleString('de', { dateStyle: 'medium', timeStyle: 'medium', timZone: 'Europe/Berlin' }))
+    name = name.replace('[[DATETIME]]', moment().tz('Europe/Berlin').format('YYYY-MM-DD HH:mm:ss'))
 
     let release = null
     let created = false // Indicate if the release was created, or merely updated.

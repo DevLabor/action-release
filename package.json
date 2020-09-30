@@ -23,7 +23,8 @@
     "dependencies": {
         "@actions/core": "^1.2.0",
         "@actions/github": "^2.0.0",
-        "changelog-parser": "^2.8.0"
+        "changelog-parser": "^2.8.0",
+        "moment-timezone": "^0.5.31"
     },
     "devDependencies": {
         "conventional-changelog-cli": "^2.1.0"
